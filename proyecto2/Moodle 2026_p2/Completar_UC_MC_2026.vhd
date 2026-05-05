@@ -91,8 +91,8 @@ component counter is
 	       count : out  STD_LOGIC_VECTOR (size-1 downto 0)
 					  );
 end component;		           
--- Ejemplos de nombres de estado. No hay que usar estos. Nombrad a vuestros estados con nombres descriptivos. Así se facilita la depuración
-type state_type is (Inicio, Dir_Palabra, Leer_Bloque, Fin_Operacion, Dato_Palabra, Escribir_Tag, Espera_TRDY, Send_Addr, Dir_Bloque, Fallo_Mem, CopyBack, bajar_Frame); 
+
+type state_type is (Inicio, Dir_Palabra, Leer_Bloque, Fin_Operacion, Volcar_Bloque_CB, Escribir_Tag, Dir_Bloque, CopyBack, Transfiere_Palabra); 
 type error_type is (memory_error, No_error); 
 signal state, next_state : state_type; 
 signal error_state, next_error_state : error_type; 
@@ -209,7 +209,6 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                 ready <= '1';
                 inc_w <= '1';          -- Contador de escrituras en caché
                 Update_dirty <= '1';   -- Marcamos el bloque como modificado (sucio)
-
                 -- Escribimos el dato solo en la vía que ha acertado
                 if (hit0 = '1') then
                     MC_WE0 <= '1';
@@ -217,8 +216,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                     MC_WE1 <= '1';
                 end if;
 			elsif (((RE= '1') or (WE= '1')) and (hit='0')) then  --fallo de lectura
-				Bus_req <= '1'; -- Levantamos la mano para pedir el bus
-                
+				Bus_req <= '1'; -- Pedimos el bus
                 if (Bus_grant = '1') then
                     -- El árbitro nos ha dado permiso, bifurcamos según el caso:
                     if (addr_non_cacheable = '1' or WE = '1') then
