@@ -248,112 +248,117 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                     next_state <= Inicio;
                 end if;
 			end if;
-    when Dir_Palabra => 			
-        -- Estado Dir_Palabra: Enviamos la dirección y comprobamos si alguien responde
-				Bus_req <= '1';             -- Mantenemos la petición del bus para no perder el turno
-				Frame <= '1';               -- Iniciamos la transferencia activando la señal Frame
-				MC_send_addr_ctrl <= '1';   -- Ordenamos que salgan la dirección y las señales de control al bus
-				one_word <= '1';            -- Indicamos que la transferencia será de una sola palabra
-				-- Solo contamos el fallo si NO es un acceso a la Scratch
-				if (addr_non_cacheable = '0') then
-					inc_m <= '1';           
-				end if;				
-				-- Elegimos la operación del bus dependiendo de la orden original del MIPS
-				if (WE = '1') then
-					MC_bus_Write <= '1';    -- Queremos escribir en memoria
-				else
-					MC_bus_Read <= '1';     -- Queremos leer de memoria
-				end if;
+    when Dir_Palabra =>             
+        -- Estado Dir_Palabra: Enviamos la dirección y pasamos a la fase de datos
+                Bus_req <= '1';             -- Mantenemos la petición del bus para no perder el turno
+                Frame <= '1';               -- Iniciamos la transferencia activando la señal Frame
+                MC_send_addr_ctrl <= '1';   -- Ordenamos que salgan la dirección y las señales de control al bus
+                one_word <= '1';            -- Indicamos que la transferencia será de una sola palabra
+                
+                -- Solo contamos el fallo si NO es un acceso a la Scratch
+                if (addr_non_cacheable = '0') then
+                    inc_m <= '1';           
+                end if;             
+                
+                -- Elegimos la operación del bus dependiendo de la orden original del MIPS
+                if (WE = '1') then
+                    MC_bus_Write <= '1';    -- Queremos escribir en memoria
+                else
+                    MC_bus_Read <= '1';     -- Queremos leer de memoria
+                end if;
 
-				-- Comprobamos si el esclavo reconoce la dirección en este mismo ciclo
-				if (Bus_DevSel = '0') then
-					next_error_state <= memory_error; -- Activamos el estado de error
-					load_addr_error <= '1'; --Activamos el registro de dirección de error
-					ready <= '1'; -- Liberamos al MIPS para que procese el Data Abort
-					next_state <= Inicio; -- Se produce un error en la memoria
-				else
-					next_state <= Transfiere_Palabra; -- Si la dirección es correcta, pasamos a la fase de datos
-				end if;
+                -- Quitamos la comprobación del time-out de aquí para darle 1 ciclo de margen a la memoria
+                -- Pasamos incondicionalmente al siguiente estado
+                next_state <= Transfiere_Palabra;
 
-        when Transfiere_Palabra => 			
+        when Transfiere_Palabra =>          
         -- Estado Transfiere_Palabra: Sincronización para transferir 1 sola palabra
-				Bus_req <= '1';             -- Mantenemos el control del bus
-				Frame <= '1';               -- Mantenemos la transferencia activa
-				last_word <= '1';           -- Como es una única palabra, activamos que es la última
+                Bus_req <= '1';             -- Mantenemos el control del bus
+                Frame <= '1';               -- Mantenemos la transferencia activa
+                last_word <= '1';           -- Como es una única palabra, activamos que es la última
 
-				-- Mantenemos la orden de lectura o escritura en el bus
-				if (WE = '1') then
-					MC_bus_Write <= '1';    -- Queremos escribir
-					MC_send_data <= '1';    -- Ordenamos a los cables que envíen el dato físico
-				else
-					MC_bus_Read <= '1';     -- Queremos leer
-				end if;
+                -- Mantenemos la orden de lectura o escritura en el bus
+                if (WE = '1') then
+                    MC_bus_Write <= '1';    -- Queremos escribir
+                    MC_send_data <= '1';    -- Ordenamos a los cables que envíen el dato físico
+                else
+                    MC_bus_Read <= '1';     -- Queremos leer
+                end if;
 
-				-- Sincronización con la velocidad del esclavo
-				if (bus_TRDY = '0') then
-					-- El esclavo es lento y necesita más tiempo. Nos quedamos dando vueltas aquí.
-					next_state <= Transfiere_Palabra;
-				else
-					-- El esclavo ha levantado TRDY ('1'). La transferencia se ha completado.
-					ready <= '1'; -- Avisamos al MIPS para que avance y no se quede congelado
+                -- AHORA comprobamos si el esclavo reconoce la dirección (1 ciclo después)
+                if (Bus_DevSel = '0') then
+                    next_error_state <= memory_error; -- Activamos el estado de error
+                    load_addr_error <= '1'; --Activamos el registro de dirección de error
+                    ready <= '1'; -- Liberamos al MIPS para que procese el Data Abort
+                    next_state <= Inicio; -- Se produce un error en la memoria
+                
+                -- Si la memoria sí reconoció la dirección, esperamos a que esté lista (TRDY)
+                elsif (bus_TRDY = '0') then
+                    -- El esclavo es lento y necesita más tiempo. Nos quedamos dando vueltas aquí.
+                    next_state <= Transfiere_Palabra;
+                else
+                    -- El esclavo ha levantado TRDY ('1'). La transferencia se ha completado.
+                    ready <= '1'; -- Avisamos al MIPS para que avance y no se quede congelado
                     if (RE = '1') then
                         mux_output <= "01"; -- Redirigimos el dato desde el bus directo al MIPS
                     end if;
                     next_state <= Fin_Operacion; -- Vamos al ciclo de cierre
-				end if;
+                end if;
 		
-		when Dir_Bloque => 			
+		when Dir_Bloque =>          
         -- Estado Dir_Bloque: Pedimos a Memoria Principal un bloque entero (4 palabras)
-				Bus_req <= '1';             -- Mantenemos el control del bus
-				Frame <= '1';               -- Iniciamos la transferencia PCI
-				MC_send_addr_ctrl <= '1';   -- Enviamos la dirección al bus
-				MC_bus_Read <= '1';         -- Como traemos un bloque nuevo, siempre es lectura
-				block_addr <= '1';          -- Le decimos al multiplexor que envíe la dirección base del bloque
-				inc_m <= '1'; 				-- Contamos 1 fallo de caché
+                Bus_req <= '1';             -- Mantenemos el control del bus
+                Frame <= '1';               -- Iniciamos la transferencia PCI
+                MC_send_addr_ctrl <= '1';   -- Enviamos la dirección al bus
+                MC_bus_Read <= '1';         -- Como traemos un bloque nuevo, siempre es lectura
+                block_addr <= '1';          -- Le decimos al multiplexor que envíe la dirección base del bloque
+                inc_m <= '1';               -- Contamos 1 fallo de caché
 
-				-- Comprobamos el time-out del bus
-				if (Bus_DevSel = '0') then
-					-- Nadie responde. Abortamos la petición y volvemos a Inicio
-					next_error_state <= memory_error;
-					load_addr_error <= '1';
-					ready <= '1'; -- Liberamos al MIPS para que procese el Data Abort
-					next_state <= Inicio;
-				else
-					-- La Memoria Principal ha respondido, pasamos a recibir las 4 palabras
-					next_state <= Leer_Bloque;
-				end if;
+                -- Quitamos la comprobación del time-out de aquí para darle 1 ciclo a la Memoria Principal
+                -- Pasamos directamente a intentar recibir las 4 palabras
+                next_state <= Leer_Bloque;
 
-		when Leer_Bloque => 			
+        when Leer_Bloque =>             
         -- Estado Leer_Bloque: Bucle para recibir las 4 palabras de la ráfaga
-				Bus_req <= '1';             -- Mantenemos el control del bus
-				Frame <= '1';               -- Mantenemos la transferencia activa
-				MC_bus_Read <= '1';         -- Seguimos diciendo que queremos leer
-				mux_origen <= '1'; 			-- Conectamos la caché al bus y al contador
-				-- Avisamos al bus desde el primer momento si toca la última palabra
+                Bus_req <= '1';             -- Mantenemos el control del bus
+                Frame <= '1';               -- Mantenemos la transferencia activa
+                MC_bus_Read <= '1';         -- Seguimos diciendo que queremos leer
+                mux_origen <= '1';          -- Conectamos la caché al bus y al contador
+                
+                -- Avisamos al bus desde el primer momento si toca la última palabra
                 if (last_word_block = '1') then
                     last_word <= '1'; 
                 end if;
-				-- Esperamos a que la memoria principal esté lista (TRDY)
-				if (bus_TRDY = '1') then
-					-- Acabamos de recibir una palabra válida
-					-- La guardamos en la vía correspondiente de la caché
+                
+                -- AHORA comprobamos el time-out del bus (1 ciclo después de mandar la dirección)
+                if (Bus_DevSel = '0') then
+                    -- Nadie responde. Abortamos la petición y volvemos a Inicio
+                    next_error_state <= memory_error;
+                    load_addr_error <= '1';
+                    ready <= '1'; -- Liberamos al MIPS para que procese el Data Abort
+                    next_state <= Inicio;
+                
+                -- Si la memoria sí ha respondido (DevSel=1), esperamos a que el dato esté listo (TRDY)
+                elsif (bus_TRDY = '1') then
+                    -- Acabamos de recibir una palabra válida
+                    -- La guardamos en la vía correspondiente de la caché
                     if (via_2_rpl = '0') then
                         MC_WE0 <= '1';
                     else
                         MC_WE1 <= '1';
                     end if;
-					count_enable <= '1';    -- Le damos un pulso al contador interno para que sume +1
-					
-					-- Si es esta la última palabra del bloque (la número 4)	
-					if (last_word_block = '1') then
-						next_state <= Escribir_Tag; -- Salimos del bucle
-					else
-						-- Todavía quedan palabras por llegar
-						next_state <= Leer_Bloque;  
-					end if;
-				else
-					next_state <= Leer_Bloque; -- Damos otra vuelta sin contar
-				end if;
+                    count_enable <= '1';    -- Le damos un pulso al contador interno para que sume +1
+                    
+                    -- Si es esta la última palabra del bloque (la número 4)    
+                    if (last_word_block = '1') then
+                        next_state <= Escribir_Tag; -- Salimos del bucle
+                    else
+                        -- Todavía quedan palabras por llegar
+                        next_state <= Leer_Bloque;  
+                    end if;
+                else
+                    next_state <= Leer_Bloque; -- Damos otra vuelta sin contar esperando al TRDY
+                end if;
 
 		when Escribir_Tag => 			
         -- Estado Escribir_Tag: Oficializamos la llegada del nuevo bloque
@@ -370,57 +375,57 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
 				-- Al no poner nada más, todas las señales de control del bus están a '0'
 				next_state <= Inicio;       -- Volvemos al estado de reposo a esperar la siguiente orden
 		
-		when CopyBack => 			
+		when CopyBack =>            
         -- Estado CopyBack: Iniciamos el rescate del bloque sucio hacia la Memoria Principal
-				Bus_req <= '1';             -- Mantenemos el control del bus
-				Frame <= '1';               -- Iniciamos la transferencia PCI
-				MC_send_addr_ctrl <= '1';   -- Enviamos la dirección al bus
-				MC_bus_Write <= '1';        -- Vamos a volcar un bloque, el bus debe escribir
-				block_addr <= '1';          -- Vamos a mover un bloque entero de 4 palabras
-				inc_cb <= '1'; 				-- Contamos 1 reemplazo de bloque sucio
-				send_dirty <= '1';          -- Obliga a la caché a enviar la dirección del bloque ANTIGUO, no la del MIPS
+                Bus_req <= '1';             -- Mantenemos el control del bus
+                Frame <= '1';               -- Iniciamos la transferencia PCI
+                MC_send_addr_ctrl <= '1';   -- Enviamos la dirección al bus
+                MC_bus_Write <= '1';        -- Vamos a volcar un bloque, el bus debe escribir
+                block_addr <= '1';          -- Vamos a mover un bloque entero de 4 palabras
+                inc_cb <= '1';              -- Contamos 1 reemplazo de bloque sucio
+                send_dirty <= '1';          -- Obliga a la caché a enviar la dirección del bloque ANTIGUO, no la del MIPS
 
-				-- Comprobamos el time-out del bus
-				if (Bus_DevSel = '0') then
-					-- Nadie responde en la dirección antigua. Abortamos y volvemos a Inicio
-					next_error_state <= memory_error;
-                    load_addr_error <= '1';
-                    ready <= '1';
-					next_state <= Inicio;
-				else
-					-- La Memoria Principal está lista para recibir nuestro volcado
-					next_state <= Volcar_Bloque_CB;
-				end if;
+                -- Quitamos la comprobación del time-out de aquí para darle 1 ciclo a la Memoria Principal
+                -- Pasamos incondicionalmente a volcar el bloque
+                next_state <= Volcar_Bloque_CB;
 
-		when Volcar_Bloque_CB => 			
+        when Volcar_Bloque_CB =>            
         -- Estado Volcar_Bloque_CB: Bucle para enviar las 4 palabras sucias a Memoria Principal
-				Bus_req <= '1';             -- Mantenemos el control del bus
-				Frame <= '1';               -- Mantenemos la transferencia activa
+                Bus_req <= '1';             -- Mantenemos el control del bus
+                Frame <= '1';               -- Mantenemos la transferencia activa
                 MC_bus_Write <= '1';        -- Vamos a volcar un bloque, el bus debe escribir
                 mux_origen <= '1';          -- Obliga a la caché a usar el contador (palabra 0, 1, 2, 3)
                 MC_send_data <= '1';        -- Volcamos físicamente los datos al bus
 
-				if (last_word_block = '1') then
+                if (last_word_block = '1') then
                     last_word <= '1'; 
                 end if;
 
-				-- Sincronizamos con el esclavo (Memoria Principal)
-				if (bus_TRDY = '1') then
-					-- El esclavo ha guardado la palabra actual
-					count_enable <= '1';    -- Damos un pulso para pasar a la siguiente palabra
-					
-					-- Comprobamos si acabamos de enviar la palabra 4
-					if (last_word_block = '1') then
-						Block_copied_back <= '1';   -- Ordenamos a la caché que limpie la marca de "sucio"
-						next_state <= Dir_Bloque; 
-					else
-						-- Aún quedan palabras sucias por volcar
-						next_state <= Volcar_Bloque_CB;
-					end if;
-				else
-					-- El esclavo está ocupado, esperamos dando una vuelta
-					next_state <= Volcar_Bloque_CB;
-				end if;
+                -- AHORA comprobamos el time-out del bus (1 ciclo después de mandar la dirección)
+                if (Bus_DevSel = '0') then
+                    -- Nadie responde en la dirección antigua. Abortamos y volvemos a Inicio
+                    next_error_state <= memory_error;
+                    load_addr_error <= '1';
+                    ready <= '1';
+                    next_state <= Inicio;
+                
+                -- Sincronizamos con el esclavo (Memoria Principal) si ha respondido
+                elsif (bus_TRDY = '1') then
+                    -- El esclavo ha guardado la palabra actual
+                    count_enable <= '1';    -- Damos un pulso para pasar a la siguiente palabra
+                    
+                    -- Comprobamos si acabamos de enviar la palabra 4
+                    if (last_word_block = '1') then
+                        Block_copied_back <= '1';   -- Ordenamos a la caché que limpie la marca de "sucio"
+                        next_state <= Dir_Bloque; 
+                    else
+                        -- Aún quedan palabras sucias por volcar
+                        next_state <= Volcar_Bloque_CB;
+                    end if;
+                else
+                    -- El esclavo está ocupado, esperamos dando una vuelta
+                    next_state <= Volcar_Bloque_CB;
+                end if;
 
 		when others =>
 
