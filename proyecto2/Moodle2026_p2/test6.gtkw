@@ -1,0 +1,37 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Fri May 08 17:34:50 2026
+[*]
+[dumpfile] "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\test.ghw"
+[dumpfile_mtime] "Fri May 08 17:03:39 2026"
+[dumpfile_size] 313135
+[savefile] "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\test6.gtkw"
+[timestart] 5000000
+[size] 1536 793
+[pos] -35 -35
+*-24.000000 75000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.testbench.
+[treeopen] top.testbench.uut.
+[treeopen] top.testbench.uut.io_mem.
+[treeopen] top.testbench.uut.io_mem.mc.
+[sst_width] 305
+[signals_width] 223
+[sst_expanded] 1
+[sst_vpaned_height] 221
+@28
+top.testbench.uut.clk
+@22
+#{top.testbench.uut.mips_core.ir_in[31:0]} top.testbench.uut.mips_core.ir_in[31] top.testbench.uut.mips_core.ir_in[30] top.testbench.uut.mips_core.ir_in[29] top.testbench.uut.mips_core.ir_in[28] top.testbench.uut.mips_core.ir_in[27] top.testbench.uut.mips_core.ir_in[26] top.testbench.uut.mips_core.ir_in[25] top.testbench.uut.mips_core.ir_in[24] top.testbench.uut.mips_core.ir_in[23] top.testbench.uut.mips_core.ir_in[22] top.testbench.uut.mips_core.ir_in[21] top.testbench.uut.mips_core.ir_in[20] top.testbench.uut.mips_core.ir_in[19] top.testbench.uut.mips_core.ir_in[18] top.testbench.uut.mips_core.ir_in[17] top.testbench.uut.mips_core.ir_in[16] top.testbench.uut.mips_core.ir_in[15] top.testbench.uut.mips_core.ir_in[14] top.testbench.uut.mips_core.ir_in[13] top.testbench.uut.mips_core.ir_in[12] top.testbench.uut.mips_core.ir_in[11] top.testbench.uut.mips_core.ir_in[10] top.testbench.uut.mips_core.ir_in[9] top.testbench.uut.mips_core.ir_in[8] top.testbench.uut.mips_core.ir_in[7] top.testbench.uut.mips_core.ir_in[6] top.testbench.uut.mips_core.ir_in[5] top.testbench.uut.mips_core.ir_in[4] top.testbench.uut.mips_core.ir_in[3] top.testbench.uut.mips_core.ir_in[2] top.testbench.uut.mips_core.ir_in[1] top.testbench.uut.mips_core.ir_in[0]
+#{top.testbench.uut.mips_core.pc_out[31:0]} top.testbench.uut.mips_core.pc_out[31] top.testbench.uut.mips_core.pc_out[30] top.testbench.uut.mips_core.pc_out[29] top.testbench.uut.mips_core.pc_out[28] top.testbench.uut.mips_core.pc_out[27] top.testbench.uut.mips_core.pc_out[26] top.testbench.uut.mips_core.pc_out[25] top.testbench.uut.mips_core.pc_out[24] top.testbench.uut.mips_core.pc_out[23] top.testbench.uut.mips_core.pc_out[22] top.testbench.uut.mips_core.pc_out[21] top.testbench.uut.mips_core.pc_out[20] top.testbench.uut.mips_core.pc_out[19] top.testbench.uut.mips_core.pc_out[18] top.testbench.uut.mips_core.pc_out[17] top.testbench.uut.mips_core.pc_out[16] top.testbench.uut.mips_core.pc_out[15] top.testbench.uut.mips_core.pc_out[14] top.testbench.uut.mips_core.pc_out[13] top.testbench.uut.mips_core.pc_out[12] top.testbench.uut.mips_core.pc_out[11] top.testbench.uut.mips_core.pc_out[10] top.testbench.uut.mips_core.pc_out[9] top.testbench.uut.mips_core.pc_out[8] top.testbench.uut.mips_core.pc_out[7] top.testbench.uut.mips_core.pc_out[6] top.testbench.uut.mips_core.pc_out[5] top.testbench.uut.mips_core.pc_out[4] top.testbench.uut.mips_core.pc_out[3] top.testbench.uut.mips_core.pc_out[2] top.testbench.uut.mips_core.pc_out[1] top.testbench.uut.mips_core.pc_out[0]
+@420
+top.testbench.uut.io_mem.mc.unidad_control.state
+@28
+top.testbench.uut.io_mem.mc.unidad_control.re
+top.testbench.uut.io_mem.mc.unidad_control.we
+top.testbench.uut.io_mem.mc.unidad_control.bus_req
+top.testbench.uut.io_mem.mc.unidad_control.load_addr_error
+top.testbench.uut.io_mem.mc.unidad_control.mem_error
+top.testbench.uut.io_mem.mc.unidad_control.ready
+[pattern_trace] 1
+[pattern_trace] 0
