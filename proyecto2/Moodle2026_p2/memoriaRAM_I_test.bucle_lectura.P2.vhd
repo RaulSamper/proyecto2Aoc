@@ -60,7 +60,7 @@ type RamType is array(0 to 127) of std_logic_vector(31 downto 0);
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- TEST 1: BLOQUE LIMPIO (HIT/MISS) -- Gemini me ha dicho que este es el test que hay que hacer. 
+-- TEST 1: BLOQUE LIMPIO (HIT/MISS) -- Gemini me ha dicho que este test no vale 
 -- Lee la dir. 4 (Miss - trae bloque limpio). Lee la dir. 8 (Hit de lectura).
 -- Modifica la dir. 0 (Hit de escritura - ensucia el bloque Update_dirty=1).
 -- Falla en la dir. 16 (Miss de escritura).
