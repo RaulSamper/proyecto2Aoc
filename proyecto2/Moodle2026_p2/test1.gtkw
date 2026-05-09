@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Fri May 08 23:56:16 2026
+[*]
+[dumpfile] "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\test.ghw"
+[dumpfile_mtime] "Fri May 08 23:55:15 2026"
+[dumpfile_size] 336132
+[savefile] "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\test1.gtkw"
+[timestart] 21500000
+[size] 1000 600
+[pos] -1 -1
+*-27.000000 115000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.testbench.
+[treeopen] top.testbench.uut.
+[treeopen] top.testbench.uut.io_mem.
+[treeopen] top.testbench.uut.io_mem.mc.
+[sst_width] 197
+[signals_width] 110
+[sst_expanded] 1
+[sst_vpaned_height] 187
+@28
+top.testbench.clk
+@420
+top.testbench.uut.io_mem.mc.unidad_control.state
+@28
+top.testbench.uut.io_mem.mc.unidad_control.bus_req
+top.testbench.uut.io_mem.mc.unidad_control.ready
+[pattern_trace] 1
+[pattern_trace] 0

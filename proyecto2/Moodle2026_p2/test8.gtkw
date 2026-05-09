@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Sat May 09 00:21:36 2026
+[*]
+[dumpfile] "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\test.ghw"
+[dumpfile_mtime] "Sat May 09 00:20:02 2026"
+[dumpfile_size] 324858
+[savefile] "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\test8.gtkw"
+[timestart] 147200000
+[size] 1366 697
+[pos] -1453 130
+*-27.000000 993000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.testbench.
+[treeopen] top.testbench.uut.
+[treeopen] top.testbench.uut.io_mem.
+[treeopen] top.testbench.uut.io_mem.mc.
+[treeopen] top.testbench.uut.io_mem.mc.unidad_control.
+[treeopen] top.testbench.uut.mips_core.
+[sst_width] 228
+[signals_width] 218
+[sst_expanded] 1
+[sst_vpaned_height] 270
+@28
+top.testbench.clk
+@22
+#{top.testbench.uut.mips_addr[31:0]} top.testbench.uut.mips_addr[31] top.testbench.uut.mips_addr[30] top.testbench.uut.mips_addr[29] top.testbench.uut.mips_addr[28] top.testbench.uut.mips_addr[27] top.testbench.uut.mips_addr[26] top.testbench.uut.mips_addr[25] top.testbench.uut.mips_addr[24] top.testbench.uut.mips_addr[23] top.testbench.uut.mips_addr[22] top.testbench.uut.mips_addr[21] top.testbench.uut.mips_addr[20] top.testbench.uut.mips_addr[19] top.testbench.uut.mips_addr[18] top.testbench.uut.mips_addr[17] top.testbench.uut.mips_addr[16] top.testbench.uut.mips_addr[15] top.testbench.uut.mips_addr[14] top.testbench.uut.mips_addr[13] top.testbench.uut.mips_addr[12] top.testbench.uut.mips_addr[11] top.testbench.uut.mips_addr[10] top.testbench.uut.mips_addr[9] top.testbench.uut.mips_addr[8] top.testbench.uut.mips_addr[7] top.testbench.uut.mips_addr[6] top.testbench.uut.mips_addr[5] top.testbench.uut.mips_addr[4] top.testbench.uut.mips_addr[3] top.testbench.uut.mips_addr[2] top.testbench.uut.mips_addr[1] top.testbench.uut.mips_addr[0]
+@28
+top.testbench.uut.io_mem.mc.unidad_control.unaligned
+top.testbench.uut.io_mem.mc.unidad_control.mem_error
+top.testbench.uut.io_mem.mc.unidad_control.load_addr_error
+top.testbench.uut.io_mem.mc.unidad_control.internal_addr
+@22
+#{top.testbench.uut.mips_din[31:0]} top.testbench.uut.mips_din[31] top.testbench.uut.mips_din[30] top.testbench.uut.mips_din[29] top.testbench.uut.mips_din[28] top.testbench.uut.mips_din[27] top.testbench.uut.mips_din[26] top.testbench.uut.mips_din[25] top.testbench.uut.mips_din[24] top.testbench.uut.mips_din[23] top.testbench.uut.mips_din[22] top.testbench.uut.mips_din[21] top.testbench.uut.mips_din[20] top.testbench.uut.mips_din[19] top.testbench.uut.mips_din[18] top.testbench.uut.mips_din[17] top.testbench.uut.mips_din[16] top.testbench.uut.mips_din[15] top.testbench.uut.mips_din[14] top.testbench.uut.mips_din[13] top.testbench.uut.mips_din[12] top.testbench.uut.mips_din[11] top.testbench.uut.mips_din[10] top.testbench.uut.mips_din[9] top.testbench.uut.mips_din[8] top.testbench.uut.mips_din[7] top.testbench.uut.mips_din[6] top.testbench.uut.mips_din[5] top.testbench.uut.mips_din[4] top.testbench.uut.mips_din[3] top.testbench.uut.mips_din[2] top.testbench.uut.mips_din[1] top.testbench.uut.mips_din[0]
+[pattern_trace] 1
+[pattern_trace] 0

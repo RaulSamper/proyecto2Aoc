@@ -256,7 +256,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                 one_word <= '1';            -- Indicamos que la transferencia será de una sola palabra
                 
                 -- Solo contamos el fallo si NO es un acceso a la Scratch
-                if (addr_non_cacheable = '0' and WE = '0') then
+                if (addr_non_cacheable = '0') then
                     inc_m <= '1';           
                 end if;             
                 
