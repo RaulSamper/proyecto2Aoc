@@ -283,28 +283,19 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                     MC_send_data <= '1';    -- Ordenamos a los cables que envíen el dato físico
                 else
                     MC_bus_Read <= '1';     -- Queremos leer
+                    mux_output <= "01"; -- Redirigimos el dato desde el bus directo al MIPS
                 end if;
 
-                -- Comprobamos si el esclavo reconoce la dirección (1 ciclo después)
-                if (Bus_DevSel = '0') then
-                    next_error_state <= memory_error; -- Activamos el estado de error
-                    load_addr_error <= '1'; --Activamos el registro de dirección de error
-                    ready <= '1'; -- Liberamos al MIPS para que procese el Data Abort
-                    next_state <= Inicio; -- Se produce un error en la memoria
-                
                 -- Si la memoria sí reconoció la dirección, esperamos a que esté lista (TRDY)
-                elsif (bus_TRDY = '0') then
+                if (bus_TRDY = '0') then
                     -- El esclavo es lento y necesita más tiempo. Nos quedamos dando vueltas aquí.
                     next_state <= Transfiere_Palabra;
                 else
                     -- El esclavo ha levantado TRDY ('1'). La transferencia se ha completado.
                     ready <= '1'; -- Avisamos al MIPS para que avance y no se quede congelado
-                    if (RE = '1') then
-                        mux_output <= "01"; -- Redirigimos el dato desde el bus directo al MIPS
-                    end if;
                     next_state <= Inicio; -- Vamos al ciclo de cierre
                 end if;
-		
+
 		when Dir_Bloque =>          
         -- Estado Dir_Bloque: Pedimos a Memoria Principal un bloque entero (4 palabras)
                 Bus_req <= '1';             -- Mantenemos el control del bus
@@ -371,7 +362,6 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
 		when Fin_Operacion =>
         -- Estado Fin_Operacion: Limpieza final y reactivación del sistema
 				ready <= '1';               -- Devolvemos el ready al MIPS para que continúe
-				
 				-- Al no poner nada más, todas las señales de control del bus están a '0'
 				next_state <= Inicio;       -- Volvemos al estado de reposo a esperar la siguiente orden
 		

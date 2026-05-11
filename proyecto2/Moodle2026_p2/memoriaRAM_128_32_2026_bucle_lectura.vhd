@@ -37,7 +37,7 @@ entity RAM_128_32 is port (
 			Din : in std_logic_vector (31 downto 0);--entrada de datos para el puerto de escritura
 			WE : in std_logic;		-- write enable	
 			RE : in std_logic;		-- read enable		  
-			enable: in std_logic; --solo se lee o escribe si enable está activado
+			enable: in std_logic; --solo se lee o escribe si enable estï¿½ activado
 			Dout : out std_logic_vector (31 downto 0));
 end RAM_128_32;
 
@@ -62,18 +62,18 @@ signal RAM : RamType := (        X"00000001", X"00000000", X"00000000", X"000000
 signal dir_7:  std_logic_vector(6 downto 0); 
 begin
  
- dir_7 <= ADDR(8 downto 2); -- como la memoria es de 128 plalabras no usamos la dirección completa sino sólo 7 bits. Como se direccionan los bytes, pero damos palabras no usamos los 2 bits menos significativos
+ dir_7 <= ADDR(8 downto 2); -- como la memoria es de 128 plalabras no usamos la direccin completa sino slo 7 bits. Como se direccionan los bytes, pero damos palabras no usamos los 2 bits menos significativos
  process (CLK)
     begin
         if (CLK'event and CLK = '1') then
-            if (WE = '1') and (enable = '1')then -- sólo se escribe si WE vale 1
+            if (WE = '1') and (enable = '1')then -- sï¿½lo se escribe si WE vale 1
                 RAM(conv_integer(dir_7)) <= Din;
 				report "Simulation time : " & time'IMAGE(now) & ".  Data written: " & integer'image(to_integer(unsigned(Din))) & ", in ADDR = " & integer'image(to_integer(unsigned(ADDR)));
             end if;
         end if;
     end process;
 
-    Dout <= RAM(conv_integer(dir_7)) when ((RE='1') and (enable = '1')) else "00000000000000000000000000000000"; --sólo se lee si RE vale 1
+    Dout <= RAM(conv_integer(dir_7)) when ((RE='1') and (enable = '1')) else "00000000000000000000000000000000"; --sï¿½lo se lee si RE vale 1
 
 end Behavioral;
 
