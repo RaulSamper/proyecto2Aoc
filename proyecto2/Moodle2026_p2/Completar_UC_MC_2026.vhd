@@ -302,7 +302,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                     if (RE = '1') then
                         mux_output <= "01"; -- Redirigimos el dato desde el bus directo al MIPS
                     end if;
-                    next_state <= Fin_Operacion; -- Vamos al ciclo de cierre
+                    next_state <= Inicio; -- Vamos al ciclo de cierre
                 end if;
 		
 		when Dir_Bloque =>          
