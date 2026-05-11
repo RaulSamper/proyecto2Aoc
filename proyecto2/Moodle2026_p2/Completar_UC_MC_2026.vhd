@@ -285,7 +285,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                     MC_bus_Read <= '1';     -- Queremos leer
                 end if;
 
-                -- AHORA comprobamos si el esclavo reconoce la dirección (1 ciclo después)
+                -- Comprobamos si el esclavo reconoce la dirección (1 ciclo después)
                 if (Bus_DevSel = '0') then
                     next_error_state <= memory_error; -- Activamos el estado de error
                     load_addr_error <= '1'; --Activamos el registro de dirección de error
@@ -330,7 +330,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                     last_word <= '1'; 
                 end if;
                 
-                -- AHORA comprobamos el time-out del bus (1 ciclo después de mandar la dirección)
+                -- Comprobamos el time-out del bus (1 ciclo después de mandar la dirección)
                 if (Bus_DevSel = '0') then
                     -- Nadie responde. Abortamos la petición y volvemos a Inicio
                     next_error_state <= memory_error;
@@ -383,7 +383,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                 MC_bus_Write <= '1';        -- Vamos a volcar un bloque, el bus debe escribir
                 block_addr <= '1';          -- Vamos a mover un bloque entero de 4 palabras
                 inc_cb <= '1';              -- Contamos 1 reemplazo de bloque sucio
-                send_dirty <= '1';          -- Obliga a la caché a enviar la dirección del bloque ANTIGUO, no la del MIPS
+                send_dirty <= '1';          -- Obliga a la caché a enviar la dirección del bloque antiguo, no la del MIPS
 
                 -- Quitamos la comprobación del time-out de aquí para darle 1 ciclo a la Memoria Principal
                 -- Pasamos incondicionalmente a volcar el bloque
@@ -401,7 +401,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                     last_word <= '1'; 
                 end if;
 
-                -- AHORA comprobamos el time-out del bus (1 ciclo después de mandar la dirección)
+                -- Comprobamos el time-out del bus (1 ciclo después de mandar la dirección)
                 if (Bus_DevSel = '0') then
                     -- Nadie responde en la dirección antigua. Abortamos y volvemos a Inicio
                     next_error_state <= memory_error;
