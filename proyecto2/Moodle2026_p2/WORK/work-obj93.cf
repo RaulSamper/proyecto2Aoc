@@ -1,103 +1,103 @@
 v 4
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Via_2026_CB.vhd" "dfc1466cd98617a8734426822fd411ac68cce502" "20260511083114.824":
-  entity via_cb at 1( 0) + 0 on 33;
-  architecture behavioral of via_cb at 25( 1303) + 0 on 34;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "testbench_AOC2_SoC.vhd" "4425ec521b521d816a349e3d2a05ef27d9a35808" "20260511083113.086":
-  entity testbench at 3( 26) + 2 on 11;
-  architecture behavior of testbench at 10( 149) + 2 on 12;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "REGISTER.vhd" "bb1f16639744f39ecc1ef4892185e16345358757" "20260511083114.713":
-  entity reg at 2( 2) + 0 on 31;
-  architecture behavioral of reg at 15( 421) + 0 on 32;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "mux4_1.vhd" "77e61d225e8903760cce4b3e7e6390eff88901d5" "20260511083116.632":
-  entity mux4_1 at 20( 493) + 0 on 63;
-  architecture behavioral of mux4_1 at 41( 1197) + 0 on 64;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "mux2_5bits.vhd" "380d4d9ec33f6a77c2e56b7f36dec5b19b69ff9d" "20260511083117.016":
-  entity mux2_5bits at 20( 489) + 0 on 69;
-  architecture behavioral of mux2_5bits at 39( 1068) + 0 on 70;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "mux2_1.vhd" "16c03f03addbb8a3f3dad9a1da21f497d0aa4854" "20260511083116.717":
-  entity mux2_1 at 20( 493) + 0 on 65;
-  architecture behavioral of mux2_1 at 39( 1069) + 0 on 66;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "memoriaRAM_I_test.bucle_lectura.P2.vhd" "93e54609f14feaf08f5056d3860cb79aa9ca9044" "20260511083115.621":
-  entity memoriaram_i at 20( 491) + 0 on 45;
-  architecture behavioral of memoriaram_i at 41( 1237) + 0 on 46;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "memoriaRAM_64_32_enable.vhd" "6eac88fc48db01c27a01cd07eef31b662a1f74de" "20260511083115.433":
-  entity ram_64_32 at 20( 489) + 0 on 41;
-  architecture behavioral of ram_64_32 at 44( 1359) + 0 on 42;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "memoriaRAM_128_32_2026_bucle_lectura.vhd" "a2934d2963ff2d3d38df718a0064ec869ed03b98" "20260511083115.333":
-  entity ram_128_32 at 20( 489) + 0 on 39;
-  architecture behavioral of ram_128_32 at 44( 1361) + 0 on 40;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "MD_scratch_2026.vhd" "5605d0c4696bd54dac4b2885018edf36352d4b1a" "20260511083114.250":
-  entity md_scratch at 19( 398) + 0 on 23;
-  architecture behavioral of md_scratch at 40( 1248) + 0 on 24;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "MD_cont_2026.vhd" "62c9081c533284dc57c09e18f19b83a066941d29" "20260511083114.015":
-  entity md_cont_2026 at 19( 398) + 0 on 21;
-  architecture behavioral of md_cont_2026 at 41( 1341) + 0 on 22;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "MC_datos_CB_2026.vhd" "c33041dc1124989c235db28d9f74d625eeb3f363" "20260511083113.832":
-  entity mc_datos_cb at 20( 636) + 0 on 19;
-  architecture behavioral of mc_datos_cb at 59( 2631) + 0 on 20;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "IO_MD_subsystem_P2_26.vhd" "d88c983f16ff9e2739dcd1a1826b01a6a01b292a" "20260511083113.277":
-  entity io_data_memory_subsystem at 20( 489) + 0 on 15;
-  architecture behavioral of io_data_memory_subsystem at 57( 2512) + 0 on 16;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "IO_master_2026.vhd" "ee4ac225333b1b93ad388d592be64f14c233dee5" "20260511083114.601":
-  entity io_master at 1( 0) + 0 on 29;
-  architecture behavioral of io_master at 25( 1279) + 0 on 30;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "INCOMPLETE_UD_2026.vhd" "f583e87bb0559b6d42eb2e8c211584f5af0d2fdc" "20260511083116.181":
-  entity ud at 1( 0) + 0 on 57;
-  architecture behavioral of ud at 28( 1668) + 0 on 58;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "INCOMPLETE_UC_Mips_2026.vhd" "0302397751d09f5f5e484bf37bf99c6dc37a8eea" "20260511083116.080":
-  entity uc at 20( 481) + 0 on 55;
-  architecture behavioral of uc at 51( 1589) + 0 on 56;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "INCOMPLETE_UA_2026.vhd" "19a934c5a0f08b88ea14951a05b063380b7a78e3" "20260511083116.544":
-  entity ua at 1( 0) + 0 on 61;
-  architecture behavioral of ua at 19( 518) + 0 on 62;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "INCOMPLETE_Mips_segmentado_IRQ_2026.vhd" "7b6e608c8f502f22462d9381c41bfcb3b7e26704" "20260511083113.504":
-  entity mips_segmentado at 13( 672) + 0 on 17;
-  architecture behavioral of mips_segmentado at 32( 1469) + 0 on 18;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "FIFO_reg.vhd" "05cf4847cc560ffcca35210b0249fba6811f815d" "20260511083115.028":
-  entity fifo_reg at 20( 481) + 0 on 35;
-  architecture behavioral of fifo_reg at 47( 1325) + 0 on 36;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Ext_signo.vhd" "a86099b57bba8e351753e752f26601c7908ad4f4" "20260511083115.931":
-  entity ext_signo at 20( 488) + 0 on 51;
-  architecture behavioral of ext_signo at 37( 989) + 0 on 52;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Exception_manager.vhd" "b132aff84134554da558fcc330761de51c066179" "20260511083117.204":
-  entity exception_manager at 6( 309) + 0 on 73;
-  architecture behavioral of exception_manager at 29( 1771) + 0 on 74;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "counter_2bits.vhd" "0fc3f2cb6ca5db5c10947b0ce45d20cff2218e2e" "20260511083112.740":
-  entity counter_2bits at 20( 486) + 0 on 4;
-  architecture behavioral of counter_2bits at 34( 950) + 0 on 4;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "counter.vhd" "4c787804472fe6172d2d20f4bfdcfb0934d580c9" "20260511083114.474":
-  entity counter at 20( 487) + 0 on 27;
-  architecture behavioral of counter at 46( 1270) + 0 on 28;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Completar_UC_MC_2026.vhd" "1dac2d5f83c0c2df2213777a675129fd317677ff" "20260511083115.102":
-  entity uc_mc_cb at 20( 602) + 0 on 37;
-  architecture behavioral of uc_mc_cb at 82( 4834) + 0 on 38;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "BReg.vhd" "bb69d410cca56dd4f196ac706a7044ffa4091399" "20260511083115.814":
-  entity breg at 20( 481) + 0 on 49;
-  architecture behavioral of breg at 49( 1525) + 0 on 50;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "bits_shifter.vhd" "84314704fb90b0c3a56bacef575e87f50f736186" "20260511083115.992":
-  entity two_bits_shifter at 20( 491) + 0 on 53;
-  architecture behavioral of two_bits_shifter at 37( 1003) + 0 on 54;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Banco_WB.vhd" "09f709cc072c7c47cd795b43ce7f357e3da439d1" "20260511083117.387":
-  entity banco_wb at 20( 487) + 0 on 75;
-  architecture behavioral of banco_wb at 63( 2304) + 0 on 76;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Banco_MEM.vhd" "eafad20fe4100104072dc1cc21ae3065594c638f" "20260511083117.082":
-  entity banco_mem at 20( 488) + 0 on 71;
-  architecture behavioral of banco_mem at 68( 2502) + 0 on 72;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Banco_ID.vhd" "688b006032428225982a73c4921ea61c8c20d37f" "20260511083115.700":
-  entity banco_id at 4( 288) + 0 on 47;
-  architecture behavioral of banco_id at 24( 1122) + 0 on 48;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Banco_EX.vhd" "57445634bb03f893c9352a376ecd62698d63e32d" "20260511083116.366":
-  entity banco_ex at 20( 487) + 0 on 59;
-  architecture behavioral of banco_ex at 88( 3392) + 0 on 60;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "arbitro.vhd" "0622d08d8c23520dd7c94367e7315fec51cb22b5" "20260511083114.375":
-  entity arbitro at 20( 484) + 0 on 25;
-  architecture behavioral of arbitro at 44( 1357) + 0 on 26;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "AOC2_SoC_2026.vhd" "2fbe127ede2393abf4288754d7cf932e17f68d8d" "20260511083113.180":
-  entity aoc2_soc at 3( 26) + 2 on 13;
-  architecture behavior of aoc2_soc at 17( 536) + 2 on 14;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "ALU_2026.vhd" "560d516852af97ff2b8d9c028c523d63a76ee6a2" "20260511083116.804":
-  entity alu_vector_mac at 11( 406) + 0 on 67;
-  architecture behavioral of alu_vector_mac at 34( 1466) + 0 on 68;
-file "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\" "adder32.vhd" "314628325a7fba8ded83ce676b48051d32b99dc4" "20260511083115.523":
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "adder32.vhd" "314628325a7fba8ded83ce676b48051d32b99dc4" "20260511135312.444":
   entity adder32 at 20( 486) + 0 on 43;
   architecture behavioral of adder32 at 39( 1097) + 0 on 44;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "ALU_2026.vhd" "560d516852af97ff2b8d9c028c523d63a76ee6a2" "20260511135313.381":
+  entity alu_vector_mac at 11( 406) + 0 on 67;
+  architecture behavioral of alu_vector_mac at 34( 1466) + 0 on 68;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "AOC2_SoC_2026.vhd" "2fbe127ede2393abf4288754d7cf932e17f68d8d" "20260511135309.898":
+  entity aoc2_soc at 3( 26) + 2 on 13;
+  architecture behavior of aoc2_soc at 17( 536) + 2 on 14;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "arbitro.vhd" "0622d08d8c23520dd7c94367e7315fec51cb22b5" "20260511135311.170":
+  entity arbitro at 20( 484) + 0 on 25;
+  architecture behavioral of arbitro at 44( 1357) + 0 on 26;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Banco_EX.vhd" "57445634bb03f893c9352a376ecd62698d63e32d" "20260511135313.058":
+  entity banco_ex at 20( 487) + 0 on 59;
+  architecture behavioral of banco_ex at 88( 3392) + 0 on 60;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Banco_ID.vhd" "688b006032428225982a73c4921ea61c8c20d37f" "20260511135312.615":
+  entity banco_id at 4( 288) + 0 on 47;
+  architecture behavioral of banco_id at 24( 1122) + 0 on 48;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Banco_MEM.vhd" "eafad20fe4100104072dc1cc21ae3065594c638f" "20260511135313.647":
+  entity banco_mem at 20( 488) + 0 on 71;
+  architecture behavioral of banco_mem at 68( 2502) + 0 on 72;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Banco_WB.vhd" "09f709cc072c7c47cd795b43ce7f357e3da439d1" "20260511135313.841":
+  entity banco_wb at 20( 487) + 0 on 75;
+  architecture behavioral of banco_wb at 63( 2304) + 0 on 76;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "bits_shifter.vhd" "84314704fb90b0c3a56bacef575e87f50f736186" "20260511135312.820":
+  entity two_bits_shifter at 20( 491) + 0 on 53;
+  architecture behavioral of two_bits_shifter at 37( 1003) + 0 on 54;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "BReg.vhd" "bb69d410cca56dd4f196ac706a7044ffa4091399" "20260511135312.691":
+  entity breg at 20( 481) + 0 on 49;
+  architecture behavioral of breg at 49( 1525) + 0 on 50;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Completar_UC_MC_2026.vhd" "1dac2d5f83c0c2df2213777a675129fd317677ff" "20260511135312.078":
+  entity uc_mc_cb at 20( 602) + 0 on 37;
+  architecture behavioral of uc_mc_cb at 82( 4834) + 0 on 38;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "counter.vhd" "4c787804472fe6172d2d20f4bfdcfb0934d580c9" "20260511135311.256":
+  entity counter at 20( 487) + 0 on 27;
+  architecture behavioral of counter at 46( 1270) + 0 on 28;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "counter_2bits.vhd" "0fc3f2cb6ca5db5c10947b0ce45d20cff2218e2e" "20260511135309.417":
+  entity counter_2bits at 20( 486) + 0 on 4;
+  architecture behavioral of counter_2bits at 34( 950) + 0 on 4;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Exception_manager.vhd" "b132aff84134554da558fcc330761de51c066179" "20260511135313.752":
+  entity exception_manager at 6( 309) + 0 on 73;
+  architecture behavioral of exception_manager at 29( 1771) + 0 on 74;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Ext_signo.vhd" "a86099b57bba8e351753e752f26601c7908ad4f4" "20260511135312.765":
+  entity ext_signo at 20( 488) + 0 on 51;
+  architecture behavioral of ext_signo at 37( 989) + 0 on 52;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "FIFO_reg.vhd" "05cf4847cc560ffcca35210b0249fba6811f815d" "20260511135311.971":
+  entity fifo_reg at 20( 481) + 0 on 35;
+  architecture behavioral of fifo_reg at 47( 1325) + 0 on 36;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "INCOMPLETE_Mips_segmentado_IRQ_2026.vhd" "7b6e608c8f502f22462d9381c41bfcb3b7e26704" "20260511135310.203":
+  entity mips_segmentado at 13( 672) + 0 on 17;
+  architecture behavioral of mips_segmentado at 32( 1469) + 0 on 18;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "INCOMPLETE_UA_2026.vhd" "19a934c5a0f08b88ea14951a05b063380b7a78e3" "20260511135313.164":
+  entity ua at 1( 0) + 0 on 61;
+  architecture behavioral of ua at 19( 518) + 0 on 62;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "INCOMPLETE_UC_Mips_2026.vhd" "0302397751d09f5f5e484bf37bf99c6dc37a8eea" "20260511135312.884":
+  entity uc at 20( 481) + 0 on 55;
+  architecture behavioral of uc at 51( 1589) + 0 on 56;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "INCOMPLETE_UD_2026.vhd" "f583e87bb0559b6d42eb2e8c211584f5af0d2fdc" "20260511135312.948":
+  entity ud at 1( 0) + 0 on 57;
+  architecture behavioral of ud at 28( 1668) + 0 on 58;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "IO_master_2026.vhd" "ee4ac225333b1b93ad388d592be64f14c233dee5" "20260511135311.355":
+  entity io_master at 1( 0) + 0 on 29;
+  architecture behavioral of io_master at 25( 1279) + 0 on 30;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "IO_MD_subsystem_P2_26.vhd" "d88c983f16ff9e2739dcd1a1826b01a6a01b292a" "20260511135309.980":
+  entity io_data_memory_subsystem at 20( 489) + 0 on 15;
+  architecture behavioral of io_data_memory_subsystem at 57( 2512) + 0 on 16;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "MC_datos_CB_2026.vhd" "c33041dc1124989c235db28d9f74d625eeb3f363" "20260511135310.579":
+  entity mc_datos_cb at 20( 636) + 0 on 19;
+  architecture behavioral of mc_datos_cb at 59( 2631) + 0 on 20;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "MD_cont_2026.vhd" "62c9081c533284dc57c09e18f19b83a066941d29" "20260511135310.815":
+  entity md_cont_2026 at 19( 398) + 0 on 21;
+  architecture behavioral of md_cont_2026 at 41( 1341) + 0 on 22;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "MD_scratch_2026.vhd" "5605d0c4696bd54dac4b2885018edf36352d4b1a" "20260511135311.002":
+  entity md_scratch at 19( 398) + 0 on 23;
+  architecture behavioral of md_scratch at 40( 1248) + 0 on 24;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "memoriaRAM_128_32_2026_bucle_lectura.vhd" "a2934d2963ff2d3d38df718a0064ec869ed03b98" "20260511135312.248":
+  entity ram_128_32 at 20( 489) + 0 on 39;
+  architecture behavioral of ram_128_32 at 44( 1361) + 0 on 40;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "memoriaRAM_64_32_enable.vhd" "6eac88fc48db01c27a01cd07eef31b662a1f74de" "20260511135312.341":
+  entity ram_64_32 at 20( 489) + 0 on 41;
+  architecture behavioral of ram_64_32 at 44( 1359) + 0 on 42;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "memoriaRAM_I_test.bucle_lectura.P2.vhd" "7ec5356609224dcb3f426ddb622d2a2496e4ecdc" "20260511135312.524":
+  entity memoriaram_i at 20( 491) + 0 on 45;
+  architecture behavioral of memoriaram_i at 41( 1237) + 0 on 46;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "mux2_1.vhd" "16c03f03addbb8a3f3dad9a1da21f497d0aa4854" "20260511135313.324":
+  entity mux2_1 at 20( 493) + 0 on 65;
+  architecture behavioral of mux2_1 at 39( 1069) + 0 on 66;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "mux2_5bits.vhd" "380d4d9ec33f6a77c2e56b7f36dec5b19b69ff9d" "20260511135313.575":
+  entity mux2_5bits at 20( 489) + 0 on 69;
+  architecture behavioral of mux2_5bits at 39( 1068) + 0 on 70;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "mux4_1.vhd" "77e61d225e8903760cce4b3e7e6390eff88901d5" "20260511135313.244":
+  entity mux4_1 at 20( 493) + 0 on 63;
+  architecture behavioral of mux4_1 at 41( 1197) + 0 on 64;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "REGISTER.vhd" "bb1f16639744f39ecc1ef4892185e16345358757" "20260511135311.481":
+  entity reg at 2( 2) + 0 on 31;
+  architecture behavioral of reg at 15( 421) + 0 on 32;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "testbench_AOC2_SoC.vhd" "4425ec521b521d816a349e3d2a05ef27d9a35808" "20260511135309.824":
+  entity testbench at 3( 26) + 2 on 11;
+  architecture behavior of testbench at 10( 149) + 2 on 12;
+file "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\" "Via_2026_CB.vhd" "dfc1466cd98617a8734426822fd411ac68cce502" "20260511135311.760":
+  entity via_cb at 1( 0) + 0 on 33;
+  architecture behavioral of via_cb at 25( 1303) + 0 on 34;
