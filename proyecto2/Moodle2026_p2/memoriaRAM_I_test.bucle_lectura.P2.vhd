@@ -115,10 +115,14 @@ type RamType is array(0 to 127) of std_logic_vector(31 downto 0);
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
--- TEST 3: RÁFAGA INTENSIVA AL MISMO BLOQUE
--- Descripción: Realiza lecturas consecutivas sobre la misma dirección (0x0100) seguidas de accesos contiguos.
--- Objetivo: Validar el rendimiento temporal tras un fallo inicial. La primera lectura debe provocar un fallo 
--- y traer el bloque; las tres lecturas siguientes deben resolverse en 1 ciclo como aciertos puros (Hits).
+-- TEST 3: ACCESO A MEMORIA SCRATCH (NO CACHEABLE)
+-- Descripción: Prueba de escritura y lectura directa en el espacio de memoria Scratch (0x10000000). 
+-- Primero carga el puntero a la Scratch en r1 y un dato desde la memoria principal en r2. 
+-- A continuación, realiza una escritura en la 4ª palabra de la Scratch (offset 12) 
+-- y una lectura de la 3ª palabra de la Scratch (offset 8), almacenándola en r3.
+-- Objetivo: Validar la "Ruta 1" de la Unidad de Control. Comprobar que al acceder a este rango, 
+-- la señal addr_non_cacheable se activa, ejecutándose los estados 'Dir_Palabra' y 'Transfiere_Palabra' 
+-- sin alterar la caché normal. 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 signal RAM : RamType := (
     X"10210003", X"1021003E", X"1021005D", X"1021006C", X"08010100", X"08020000", X"0C22000C", X"08230008", -- word 0-7
