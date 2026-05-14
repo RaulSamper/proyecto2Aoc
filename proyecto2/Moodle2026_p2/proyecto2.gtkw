@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Mon May 11 21:15:20 2026
+[*] Thu May 14 17:23:14 2026
 [*]
-[dumpfile] "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\test.ghw"
-[dumpfile_mtime] "Mon May 11 21:14:11 2026"
-[dumpfile_size] 299629
-[savefile] "C:\Users\Usuario\Documents\GitHub\proyecto2Aoc\proyecto2\Moodle2026_p2\proyecto2.gtkw"
-[timestart] 401700000
-[size] 1536 889
-[pos] -35 -35
-*-24.600000 344100000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[dumpfile] "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\test.ghw"
+[dumpfile_mtime] "Thu May 14 17:13:33 2026"
+[dumpfile_size] 2392673
+[savefile] "C:\Users\jaime\Desktop\CURSO25-26\2ocuatrimestre\PS\proyecto2Aoc\proyecto2\Moodle2026_p2\proyecto2.gtkw"
+[timestart] 49875700000
+[size] 1536 793
+[pos] -61 -61
+*-24.600000 408800000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.testbench.
 [treeopen] top.testbench.uut.
@@ -22,7 +22,7 @@
 [sst_width] 297
 [signals_width] 214
 [sst_expanded] 1
-[sst_vpaned_height] 538
+[sst_vpaned_height] 516
 @800200
 -MIPS - CACHE
 @24
@@ -163,18 +163,24 @@ top.testbench.uut.io_mem.mc.unidad_control.last_word
 @1401200
 -12-15
 -via0
-@c00200
+@800200
 -CONTADORES
 @28
 top.testbench.uut.io_mem.mc.unidad_control.inc_m
 top.testbench.uut.io_mem.mc.unidad_control.inc_w
 top.testbench.uut.io_mem.mc.unidad_control.inc_r
 top.testbench.uut.io_mem.mc.unidad_control.inc_cb
-@1401200
+@1000200
 -CONTADORES
+@25
+#{top.testbench.uut.io_mem.mc.cb_count[7:0]} top.testbench.uut.io_mem.mc.cb_count[7] top.testbench.uut.io_mem.mc.cb_count[6] top.testbench.uut.io_mem.mc.cb_count[5] top.testbench.uut.io_mem.mc.cb_count[4] top.testbench.uut.io_mem.mc.cb_count[3] top.testbench.uut.io_mem.mc.cb_count[2] top.testbench.uut.io_mem.mc.cb_count[1] top.testbench.uut.io_mem.mc.cb_count[0]
+@24
+#{top.testbench.uut.io_mem.mc.r_count[7:0]} top.testbench.uut.io_mem.mc.r_count[7] top.testbench.uut.io_mem.mc.r_count[6] top.testbench.uut.io_mem.mc.r_count[5] top.testbench.uut.io_mem.mc.r_count[4] top.testbench.uut.io_mem.mc.r_count[3] top.testbench.uut.io_mem.mc.r_count[2] top.testbench.uut.io_mem.mc.r_count[1] top.testbench.uut.io_mem.mc.r_count[0]
+#{top.testbench.uut.io_mem.mc.w_count[7:0]} top.testbench.uut.io_mem.mc.w_count[7] top.testbench.uut.io_mem.mc.w_count[6] top.testbench.uut.io_mem.mc.w_count[5] top.testbench.uut.io_mem.mc.w_count[4] top.testbench.uut.io_mem.mc.w_count[3] top.testbench.uut.io_mem.mc.w_count[2] top.testbench.uut.io_mem.mc.w_count[1] top.testbench.uut.io_mem.mc.w_count[0]
+#{top.testbench.uut.io_mem.mc.m_count[7:0]} top.testbench.uut.io_mem.mc.m_count[7] top.testbench.uut.io_mem.mc.m_count[6] top.testbench.uut.io_mem.mc.m_count[5] top.testbench.uut.io_mem.mc.m_count[4] top.testbench.uut.io_mem.mc.m_count[3] top.testbench.uut.io_mem.mc.m_count[2] top.testbench.uut.io_mem.mc.m_count[1] top.testbench.uut.io_mem.mc.m_count[0]
 @420
 top.testbench.uut.io_mem.mc.unidad_control.error_state
-@29
+@28
 top.testbench.uut.io_mem.mc.unidad_control.mem_error
 [pattern_trace] 1
 [pattern_trace] 0

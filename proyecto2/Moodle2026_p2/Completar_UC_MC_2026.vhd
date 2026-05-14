@@ -239,6 +239,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                         -- Rutas 2 y 3: Fallo de lectura (Hay que traer un bloque de MD)
                         if (dirty_bit_rpl = '1') then
                             next_state <= CopyBack; -- El bloque que vamos a pisar esta sucio
+                            inc_cb <= '1';              -- Contamos 1 reemplazo de bloque sucio
                         else
                             next_state <= Dir_Bloque;   -- El bloque que vamos a pisar esta limpio
                         end if;
@@ -362,7 +363,8 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
 		when Fin_Operacion =>
         -- Estado Fin_Operacion: Limpieza final y reactivación del sistema
 				ready <= '1';               -- Devolvemos el ready al MIPS para que continúe
-				-- Al no poner nada más, todas las señales de control del bus están a '0'
+				inc_r <= '1';
+                -- Al no poner nada más, todas las señales de control del bus están a '0'
 				next_state <= Inicio;       -- Volvemos al estado de reposo a esperar la siguiente orden
 		
 		when CopyBack =>            
@@ -372,7 +374,6 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                 MC_send_addr_ctrl <= '1';   -- Enviamos la dirección al bus
                 MC_bus_Write <= '1';        -- Vamos a volcar un bloque, el bus debe escribir
                 block_addr <= '1';          -- Vamos a mover un bloque entero de 4 palabras
-                inc_cb <= '1';              -- Contamos 1 reemplazo de bloque sucio
                 send_dirty <= '1';          -- Obliga a la caché a enviar la dirección del bloque antiguo, no la del MIPS
 
                 -- Quitamos la comprobación del time-out de aquí para darle 1 ciclo a la Memoria Principal
@@ -407,6 +408,7 @@ Mem_ERROR <= '1' when (error_state = memory_error) else '0';
                     -- Comprobamos si acabamos de enviar la palabra 4
                     if (last_word_block = '1') then
                         Block_copied_back <= '1';   -- Ordenamos a la caché que limpie la marca de "sucio"
+                        Update_dirty <= '1';
                         next_state <= Dir_Bloque; 
                     else
                         -- Aún quedan palabras sucias por volcar
